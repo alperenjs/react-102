@@ -16,7 +16,7 @@
    this project is a spontion practice of <a target="_blank" href="https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/25595970#overview">udemy course</a>
   
  &#x268A; component structure <br/>
- &#x268A; Hooks <br/>
+ &#x268A; Using Hooks with event handlers <br/>
 
 
 

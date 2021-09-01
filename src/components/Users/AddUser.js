@@ -1,18 +1,28 @@
 import React, { useState } from 'react';
 import Button from '../UI2/Button';
 import Card from '../UI2/Card';
+import ErrorModal from '../UI2/ErrorModal';
 import classes from './AddUser.module.css';
 
 function AddUser(props) {
     const [enteredUsername, setEnteredUsername] = useState('');
     const [enteredAge, setEnteredAge] = useState('');
+    const [error, setError] = useState()
 
     const addUserHandler = (event) => {
         event.preventDefault();
         if(enteredUsername.trim().length === 0 || enteredAge.trim().length === 0 ){
+          setError({
+              title: 'Invaild input',
+              message: 'please enter a valid name and age'
+          });
             return;
         }
         if(+enteredAge < 1){
+            setError({
+                title: 'Invaild age',
+                message: 'Please enter an age > 0'
+            })
             return;
         }
        props.onAddUser(enteredUsername, enteredAge);
@@ -28,7 +38,13 @@ function AddUser(props) {
         setEnteredAge(event.target.value);
     };
 
+    const closeModal = (event) => {
+        setError(null);
+    }
+
     return (
+        <>
+        {error && <ErrorModal title={error.title} message={error.message} onConfirm={closeModal}/>}
         <Card className={classes.input}>
             <form onSubmit={addUserHandler}>
                 <label htmlFor="username">Username</label>
@@ -39,6 +55,7 @@ function AddUser(props) {
                 <Button type="submit">Add User</Button>
             </form>
         </Card>
+        </>
     )
 }
 

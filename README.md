@@ -17,6 +17,8 @@
   
  &#x268A; component structure <br/>
  &#x268A; Using Hooks with event handlers <br/>
+ &#x268A; Experienced form validation <br/>
+ &#x268A; Provided event communication from child to parent <br/>
 
 
 

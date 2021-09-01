@@ -25,11 +25,16 @@ const App = () => {
       date: new Date(2021, 5, 12),
     },
   ];
+  const addExpenseHandler = expenses => {
+    console.log("coming frop app.js");
+    console.log(expenses);
+   // child to parent communication  NewExpense.js to App.js 
+  }
 
   return (
     <div>
       <h2>Let's get started!</h2>
-      <NewExpense/>
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );

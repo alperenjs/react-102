@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ExpenseForm.css';
 
-const ExpenseForm = (e) => {
+const ExpenseForm = (props) => {
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
@@ -27,7 +27,9 @@ const ExpenseForm = (e) => {
             date: new Date(enteredDate)
         };
 
-        console.log(expenseData)
+        props.onSaveExpenseData(expenseData);
+        // child to parent communication > ExpenseForm.js to NewExpense.js 
+
         setEnteredAmount('');
         setEnteredDate('');
         setEnteredTitle('');
